@@ -1,0 +1,13 @@
+language: python
+python:
+  - "2.7"
+env:
+  - BB_SKIP_NETTESTS=yes
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
+  - git clone https://github.com/rossburton/bitbake.git
+
+script:
+  - ./bitbake/bin/bitbake-selftest
