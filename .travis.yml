@@ -11,3 +11,5 @@ before_install:
 
 script:
   - ./bitbake/bin/bitbake-selftest
+  - . ./oe-init-build-env
+  - bitbake --version
