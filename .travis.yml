@@ -13,3 +13,4 @@ script:
   - ./bitbake/bin/bitbake-selftest
   - . ./oe-init-build-env
   - bitbake --version
+  - MACHINE=qemux86 bitbake gcc-cross-x86
