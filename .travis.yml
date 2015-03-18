@@ -16,4 +16,5 @@ script:
   - . ./oe-init-build-env
   - echo 'PACKAGECONFIG_remove_pn-qemu-native = "sdl"' >> conf/local.conf
   - echo 'ASSUME_PROVIDED_remove = "libsdl-native"' >> conf/local.conf
+  - echo "# Temporary hack" > conf/sanity.conf
   - MACHINE=qemux86 bitbake gcc-cross-i586 | cat
