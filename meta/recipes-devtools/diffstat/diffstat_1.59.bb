@@ -28,3 +28,5 @@ do_configure () {
 do_install_ptest() {
 	cp -r ${S}/testing ${D}${PTEST_PATH}
 }
+
+BBCLASSEXTEND = "native"
