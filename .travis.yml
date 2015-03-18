@@ -14,5 +14,6 @@ before_install:
 script:
   - BB_SKIP_NETTESTS=yes ./bitbake/bin/bitbake-selftest
   - . ./oe-init-build-env
-  - echo 'PACKAGECONFIG_remove_pn-qemu-native = " sdl"' >> conf/local.conf
+  - echo 'PACKAGECONFIG_remove_pn-qemu-native = "sdl"' >> conf/local.conf
+  - echo 'ASSUME_PROVIDED_remove = "sdl"' >> conf/local.conf
   - MACHINE=qemux86 bitbake gcc-cross-i586 | cat
