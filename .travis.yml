@@ -4,18 +4,9 @@ python:
 sudo: false
 addons:
   apt_packages:
-  - gawk
-  - wget
-  - git-core
   - diffstat
-  - unzip
   - texinfo
-  - gcc-multilib
-  - build-essential
   - chrpath
-  - socat
-  - libsdl1.2-dev
-  - xterm
 
 before_install:
   - git clone https://github.com/rossburton/bitbake.git
@@ -23,4 +14,5 @@ before_install:
 script:
   - BB_SKIP_NETTESTS=yes ./bitbake/bin/bitbake-selftest
   - . ./oe-init-build-env
+  - echo 'PACKAGECONFIG_remove_pn-qemu-native = " sdl"' >> conf/local.conf
   - MACHINE=qemux86 bitbake gcc-cross-i586 | cat
